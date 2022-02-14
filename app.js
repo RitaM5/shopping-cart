@@ -14,20 +14,16 @@ function updateProductNumber(product,increasing,total,price){
     productTotal.innerText = productNumber * price;
     
    }
-   calculateTotal(product);
+   calculateTotal();
 
 }
 
- function calculateTotal(product){
-
-    let subProductInput = document.getElementById(product);
-    let subProductNumber = subProductInput.value;
-
-     let phoneTotal = parseInt(subProductNumber) * 1219;
-     let caseTotal = parseInt(subProductNumber) * 59;
-     let subTotal = phoneTotal + caseTotal ;
-     let subTax = (subTotal / 100) * 10;
-     let totalPrice = subTotal + subTax
+ function calculateTotal(){
+     let caseTotal = document.getElementById('case-total').innerText;
+     let phoneTotal = document.getElementById('phone-total').innerText;
+     let subTotal = parseInt(caseTotal) + parseInt(phoneTotal);
+     let subTax = Math.round((subTotal/100) * 10);
+     let totalPrice = subTotal + subTax;
      document.getElementById('sub-total').innerText = subTotal;
      document.getElementById('tax').innerText = subTax;
      document.getElementById('total').innerText = totalPrice;
